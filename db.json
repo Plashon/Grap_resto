@@ -1,12 +1,6 @@
 {
   "restaurants": [
     {
-      "id": "2",
-      "img": "https://food-cms.grab.com/compressed_webp/merchants/3-C4EFGLCWLEMTN6/hero/15e8c356-c4a6-4995-af03-de75b945737a__store_cover__2024__05__04__10__28__06.webp",
-      "title": "หมูสะเต๊ะป้าสม ประตูผี - สำราญราษฎร์",
-      "type": "ปิ้งย่าง/บาร์บีคิว"
-    },
-    {
       "id": "3",
       "img": "https://food-cms.grab.com/compressed_webp/merchants/3-CZCUVJJKVFECAA/hero/b6ce86027fce4df98f6c95db8b4037ed_1590629317553319631.webp",
       "title": "ทิพย์เบเกอรี่ - เสาชิงช้า",
@@ -53,12 +47,6 @@
       "img": "https://food-cms.grab.com/compressed_webp/merchants/3-C2TWL7NAEKLGC2/hero/7777999515394bb3bb068565d4dcbef3_1622966034570936069.webp",
       "title": "กาแฟชาวดอย - อนุสาวรีย์ประชาธิปไตย",
       "type": "ชา กาแฟ"
-    },
-    {
-      "id": "11",
-      "img": "https://food-cms.grab.com/compressed_webp/merchants/3-C6DWC4DECE4BEN/hero/5c9f447e8ae849fc9245f0ff5ce6675c_1707376518599040939.webp",
-      "title": "สุกี้โบราณ - คอนโดลุมพินี ชลบุรี",
-      "type": "อาหารเส้น"
     },
     {
       "id": "12",
