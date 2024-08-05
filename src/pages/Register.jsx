@@ -19,32 +19,29 @@ const Register = () => {
   };
 
   const handleSubmit = async () => {
-    console.log(user);
     try {
       const register = await AuthService.register(
         user.userName,
         user.email,
         user.password
       );
-      if (register.status == 200) {
+      if (register.status === 200) {
         Swal.fire({
           icon: "success",
           title: "User Registration",
-          text: register.message,
+          text: register.data.message,
           timer: 1500,
         });
         setUser({ userName: "", email: "", password: "" });
-        navigate("/login");
+        navigate("/signin");
       }
     } catch (error) {
       Swal.fire({
         icon: "error",
         title: "User Registration",
-        text: error.message,
+        text: error.response ? error.response.data.message : "Unknown error",
         timer: 1500,
       });
-     
-     
     }
   };
 

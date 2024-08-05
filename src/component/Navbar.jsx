@@ -3,9 +3,11 @@ import Header from "./Header";
 import  UserProfile  from './UserProfile';
 import RegisterButton from './RegisterButton';
 import  LoginButton  from './LoginButton';
+import { useAuthContext } from "../context/authContext";
 
 function Navbar() {
-  const user = null;
+  const {user} = useAuthContext();
+  console.log("user,",user);
   return (
     <div className="navbar bg-base-100 mt-5 mb-10 mx-auto h-30 w-5/6">
       <div className="navbar-start ">
