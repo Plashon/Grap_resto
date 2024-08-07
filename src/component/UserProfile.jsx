@@ -1,6 +1,14 @@
 import React from 'react'
+import {useAuthContext} from "../context/authContext"
 
 const UserProfile = () => {
+  const { logout } = useAuthContext(); // ดึงฟังก์ชัน logout จาก context
+  //const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout(); // เรียกใช้ฟังก์ชัน logout
+    //navigate("/Login"); // ใช้ navigate เพื่อเปลี่ยนเส้นทางไปที่หน้า Login
+  };
   return (
     <div className="dropdown dropdown-end">
     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
@@ -20,7 +28,7 @@ const UserProfile = () => {
         </a>
       </li>
       <li><a>Settings</a></li>
-      <li><a>Logout</a></li>
+      <li onClick={handleLogout}><a>Logout</a></li>
     </ul>
   </div>
   )
