@@ -9,17 +9,19 @@ export const AuthProvider = ({ children }) => {
     AuthService.logout();
     setUser(null); //ทำให้ค่าเป็นปัจจุบัน หลังจาก logout แล้ว
   };
+
   function getUser(){
     const temp = localStorage.getItem("user");
     const savedUser = JSON.parse(temp);
     return savedUser || null; //ทำให้ค่าเป็นปัจจุบัน หรือ ล่าสุด เสมอ
   }
-   
-  
   useEffect(() => {
     const temp = JSON.stringify(user);
     localStorage.setItem("user", temp);
   }, [user]);
+
+
+  
   return (
     <AuthContext.Provider value={{ user, login, logout }}>
       {children}

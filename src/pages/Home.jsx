@@ -1,23 +1,30 @@
 import React, { useState, useEffect } from "react";
 import Search from "./../component/Search";
 import Restaurant from "./../component/Restaurant";
+import RestaurantService from "../services/restaurant.service";
+import Swal from "sweetalert2";
 
 
 function Home() {
   const [restaurants, setRestaurants] = useState([]);
-  const [filterRestaurant, setfilterRestaurant] = useState([]);
+  const [filterRestaurant, setFilterRestaurant] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/restaurants")
-      .then((res) => {
-        return res.json();
-      })
-      .then((response) => {
-        setRestaurants(response);
-        setfilterRestaurant(response);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
+    const getRestaurant = async () =>{
+      try {
+        const response = await RestaurantService.getAllRestaurant();
+        if(response.status === 200){
+          setRestaurants(response.data);
+          setFilterRestaurant(response.data)
+        }
+      } catch (error) {
+        Swal.file({
+          title:"Get All Restaurant",
+          text:error?.response?.data?.message || error.message,
+          icon:"error"
+        })
+      }
+    }
+    getRestaurant()
   }, []);
 
   return (
@@ -25,7 +32,7 @@ function Home() {
       <div className="container flex flex-row flex-wrap mx-auto items-center justify-center">
         <Search
           restaurants={restaurants}
-          setfilterRestaurant={setfilterRestaurant}
+          setfilterRestaurant={setFilterRestaurant}
         />
         <Restaurant restaurants={filterRestaurant} />
       </div>

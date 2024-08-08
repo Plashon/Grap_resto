@@ -1,7 +1,7 @@
 import React from "react";
 import Restaurant from "./Restaurant";
 
-const Card = ({ id, img, title, type }) => {
+const Card = ({ id, imageUrl, name, type }) => {
   const handleDelete = async () => {
     try {
       const response = await fetch("http://localhost:3000/restaurants/"+ id, {
@@ -18,10 +18,10 @@ const Card = ({ id, img, title, type }) => {
   return (
     <div className="card bg-base-100 w-96 shadow-xl m-3 h-96 " id="card">
       <figure>
-        <img src={img} alt={title} className="rounded-xl h- w-96 h-64" />
+        <img src={imageUrl} alt={name} className="rounded-xl h- w-96 h-64" />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">{title}</h2>
+        <h2 className="card-title">{name}</h2>
         <p>{type}</p>
         <div className="card-actions justify-end">
           <a className="btn btn-primary" href={`edit/${id}`}>Edit</a>

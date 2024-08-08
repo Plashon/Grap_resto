@@ -10,8 +10,8 @@ const Restaurant = ({ restaurants }) => {
             <Card
               key={restaurant.id} // การวนซ้ำแค่ละรอบ ค่าของ key ต้องไม่ซ้ำรอบก่อนหน้า
               id={restaurant.id}
-              img={restaurant.img}
-              title={restaurant.title}
+              imageUrl={restaurant.imageUrl}
+              name={restaurant.name}
               type={restaurant.type}
             />
           );

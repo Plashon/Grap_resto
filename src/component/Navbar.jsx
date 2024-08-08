@@ -1,13 +1,13 @@
 import React from "react";
 import Header from "./Header";
-import  UserProfile  from './UserProfile';
-import RegisterButton from './RegisterButton';
-import  LoginButton  from './LoginButton';
+import UserProfile from "./UserProfile";
+import RegisterButton from "./RegisterButton";
+import LoginButton from "./LoginButton";
 import { useAuthContext } from "../context/authContext";
 
 function Navbar() {
-  const {user} = useAuthContext();
-  console.log("user,",user);
+  const { user } = useAuthContext();
+
   return (
     <div className="navbar bg-base-100 mt-5 mb-10 mx-auto h-30 w-5/6">
       <div className="navbar-start ">
@@ -42,23 +42,39 @@ function Navbar() {
         </div>
       </div>
       <div className="navbar-center h-10">
-        <a className="btn btn-ghost text-xl align-middle h-24">
+        <div className="btn btn-ghost text-xl align-middle h-24">
           <Header />
-        </a>
+        </div>
       </div>
-      <div className="navbar-end ">
-        {user ?(
-          <UserProfile/>
-        ):(
-          <div className="space-x-2">
-            <RegisterButton/>
-            <LoginButton/>
+
+      <div className="navbar-end space-x-2">
+        {user && (
+          <div className=" text-xl">
+            Welcome,
+            <span className=" text-blue-700">
+              {user.userName}
+              {""}
+              {user.roles.map((role,index) => {
+                return (
+                  <div key={index} className=" text-xs">
+                    <span className="  badge-accent badge-outline">{role}</span>
+                  </div>
+                );
+              })}
+            </span>
           </div>
         )}
-      
-  </div>
+
+        {user ? (
+          <UserProfile />
+        ) : (
+          <div className="space-x-2">
+            <RegisterButton />
+            <LoginButton />
+          </div>
+        )}
       </div>
-   
+    </div>
   );
 }
 
