@@ -28,7 +28,6 @@ const Login = () => {
       console.log(currentUser);
       if (currentUser.status === 200) {
         login(currentUser.data);
-
         Swal.fire({
           icon: "success",
           title: "User Login",
@@ -66,7 +65,7 @@ const Login = () => {
         <input
           type="text"
           className="grow"
-          placeholder="ชื่อร้าน"
+          placeholder="ชื่อผู้ใช้"
           name="userName"
           value={user.userName}
           onChange={handleChange}

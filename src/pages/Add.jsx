@@ -1,11 +1,14 @@
 import React from "react";
 import { useState } from "react";
+import RestaurantService from "../services/restaurant.service";
+import Swal from "sweetalert2";
+
 
 export const Add = () => {
   const [restaurant, setRestaurants] = useState({
-    title: "",
+    name: "",
     type: "",
-    img: "",
+    imageUrl: "",
   });
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -13,20 +16,27 @@ export const Add = () => {
   };
   const handleSubmit = async () => {
     try {
-      const response = await fetch("http://localhost:3000/restaurants", {
-        method: "POST",
-        body: JSON.stringify(restaurant),
-      });
-      if (response.ok) {
-        alert("restaurant added success");
-        setRestaurants({
-          title: "",
-          type: "",
-          img: "",
+      const response = await RestaurantService.addRestaurant(restaurant);
+      if (response.status === 200) {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: `Restaurant Insert`,
+          text: response.data.message,
+          timer: 1500,
+        }).then(() => {
+          setRestaurants({ name: "", type: "", imgUrl: "" });
+          window.location.reload();
         });
       }
     } catch (error) {
-      console.log(error);
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: `Restaurant Insert`,
+        text: error?.response?.data?.message,
+        timer: 1500,
+      });
     }
   };
   return (
@@ -41,14 +51,14 @@ export const Add = () => {
             type="text"
             className="grow"
             placeholder="https://food-cms.grab.com/"
-            name="img"
+            name="imageUrl"
             onChange={handleChange}
-            value={restaurant.img}
+            value={restaurant.imageUrl}
           />
         </label>
         {restaurant.img && (
           <div className="flex items-center ">
-            <img src={restaurant.img} className="h-32" />
+            <img src={restaurant.imageUrl} className="h-32" />
           </div>
         )}
         <label className="input input-bordered flex items-center gap-2 my-5">
@@ -57,9 +67,9 @@ export const Add = () => {
             type="text"
             className="grow"
             placeholder="ชื่อร้าน"
-            name="title"
+            name="name"
             onChange={handleChange}
-            value={restaurant.title}
+            value={restaurant.name}
           />
         </label>
         <label className="input input-bordered flex items-center gap-2 my-5">
