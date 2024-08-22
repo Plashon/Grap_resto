@@ -3,9 +3,24 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import RestaurantService from "../services/restaurant.service";
 import Swal from "sweetalert2";
+import { useAuthContext } from "../context/authContext";
 
 export const Edit = () => {
   const navigate = useNavigate();
+  const { user } = useAuthContext();
+  useEffect(() => {
+    if (
+      !user ||
+      (user &&
+        !(
+          user.roles.includes("ROLES_MODERATOR") ||
+          user.roles.includes("ROLES_ADMIN")
+        ))
+    ) {
+      navigate("/");
+    }
+  }, [user]);
+ 
   const { id } = useParams();
   const [restaurant, setRestaurants] = useState({
     name: "",

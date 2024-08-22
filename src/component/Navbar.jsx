@@ -7,6 +7,17 @@ import { useAuthContext } from "../context/authContext";
 
 function Navbar() {
   const { user } = useAuthContext();
+  const menus = {
+    ROLES_ADMIN: [
+      { name: "Home page", link: "/" },
+      { name: "Add restaurant", link: "/add" },
+    ],
+    ROLES_USER: [{ name: "Home page", link: "/" }],
+    ROLES_MODERATOR: [
+      { name: "Home page", link: "/" },
+      { name: "Add restaurant", link: "/add" },
+    ],
+  };
 
   return (
     <div className="navbar bg-base-100 mt-5 mb-10 mx-auto h-30 w-5/6">
@@ -32,12 +43,12 @@ function Navbar() {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
-            <li>
-              <a href="http://localhost:5173/">Home page</a>
-            </li>
-            <li>
-              <a href="http://localhost:5173/add/">Add Restaurant</a>
-            </li>
+            {user &&
+              menus[user.roles[0]].map((menuItem) => (//แอร์โรว์ที่มาจาก .map ไม่ต้องใช้ปีกกา
+                <li key={menuItem.name}>
+                  <a href={menuItem.link}> {menuItem.name}</a>
+                </li>
+              ))}
           </ul>
         </div>
       </div>
@@ -54,7 +65,7 @@ function Navbar() {
             <span className=" text-blue-700">
               {user.userName}
               {""}
-              {user.roles.map((role,index) => {
+              {user.roles.map((role, index) => {
                 return (
                   <div key={index} className=" text-xs">
                     <span className="  badge-accent badge-outline">{role}</span>

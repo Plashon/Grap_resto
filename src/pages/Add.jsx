@@ -1,10 +1,28 @@
-import React from "react";
-import { useState } from "react";
+
 import RestaurantService from "../services/restaurant.service";
 import Swal from "sweetalert2";
+import { useEffect, useState } from "react";
+import { useAuthContext } from "../context/authContext";
+import { useNavigate } from "react-router-dom";
 
 
 export const Add = () => {
+
+  const { user } = useAuthContext();
+  useEffect(() => {
+    if (
+      !user ||
+      (user &&
+        !(
+          user.roles.includes("ROLES_MODERATOR") ||
+          user.roles.includes("ROLES_ADMIN")
+        ))
+    ) {
+      navigate("/");
+    }
+  }, [user]);
+  
+  const navigate = useNavigate();
   const [restaurant, setRestaurants] = useState({
     name: "",
     type: "",
