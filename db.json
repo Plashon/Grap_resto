@@ -1,0 +1,58 @@
+{
+  "restaurants": [
+    {
+      
+      "imageUrl": "https://food-cms.grab.com/compressed_webp/merchants/3-C36WVBUFSF5GEX/hero/8f457a47-af84-43e6-ac68-f1942276984f__store_cover__2023__03__21__11__06__48.webp",
+      "name": "ต้มเลือดหมูศาลเจ้าพ่อเสือ - ศาลเจ้าพ่อเสือ",
+      "type": "ฟาสต์ฟู้ด"
+    },
+    {
+      
+      "imageUrl": "https://food-cms.grab.com/compressed_webp/merchants/3-C2JAFCLUE76EC2/hero/2c788804ffbf4f5e87d2df31fe0104fd_1610947857755532835.webp",
+      "name": "ชิ้วเจริญเจ้าเก่า - ถ.ตะนาว",
+      "type": "อาหารตามสั่ง"
+    },
+    {
+     
+      "imageUrl": "https://food-cms.grab.com/compressed_webp/merchants/3-C6KYJAJTFGAKT6/hero/80f721e0-ca0a-4692-b5f2-1730f3a6b31d__store_cover__2024__04__19__18__37__58.webp",
+      "name": "กัง ส้มตำ - แยกบ่อสร้าง",
+      "type": "ฟาสต์ฟู้ด"
+    },
+    {
+     
+      "imageUrl": "https://food-cms.grab.com/compressed_webp/merchants/THGFIST000009bq/hero/9d6392142aca4a0dbda45812cbc5aee9_1587909636692909741.webp",
+      "name": "ตะเกียง - ถนนราชดำเนินกลาง",
+      "type": "ข้าวหน้า"
+    },
+    {
+     
+      "imageUrl": "https://food-cms.grab.com/compressed_webp/merchants/3-C4CTAGBDAYVWWE/hero/6500a45c0d0c439d982937e5dff40756_1685001823084069516.webp",
+      "name": "หลีเฮงเย็นตาโฟ - เสาชิงช้า",
+      "type": "อาหารเส้น"
+    },
+    {
+     
+      "imageUrl": "https://food-cms.grab.com/compressed_webp/merchants/3-C2BZVFTAA64GR6/hero/66d2d9a7457446ba89d3a33cf916a2ef_1604208187641400634.webp",
+      "name": "Owl cha sao ching cha - ถนนดินสอ",
+      "type": "ชานมไข่มุก"
+    },
+    {
+     
+      "imageUrl": "https://food-cms.grab.com/compressed_webp/merchants/3-C2TWL7NAEKLGC2/hero/7777999515394bb3bb068565d4dcbef3_1622966034570936069.webp",
+      "name": "กาแฟชาวดอย - อนุสาวรีย์ประชาธิปไตย",
+      "type": "ชา กาแฟ"
+    },
+    {
+     
+      "imageUrl": "https://food-cms.grab.com/compressed_webp/merchants/3-C6LZRK4DTJXUAN/hero/896492a6-097d-4c93-b189-a06cea510e33__store_cover__2024__05__15__11__32__16.webp",
+      "name": "บ้านไอศครีม - บ้านหาด",
+      "type": "โยเกิร์ต & ไอศกรีม"
+    },
+    {
+     
+      "name": "เปิ้ลทาโกะบ้านเอื้อ - เขาท่าพระ",
+      "type": "เบเกอรี่",
+      "imageUrl": "https://food-cms.grab.com/compressed_webp/merchants/3-C6KBGK6FNLDZL6/hero/9c98820cdf4e494b8e5f316049b28582_1712216227911768649.webp"
+    }
+  ]
+}
